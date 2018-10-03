@@ -6,10 +6,10 @@ public class EjercicioC7 {
 		
 		int num = Integer.parseInt(JOptionPane.showInputDialog("Introduce un número"));
 		if ((num &1)==1) {
-	System.out.println(num" es número impar");		
+	System.out.println(num + " es número impar");		
 		}
 		else {
-			System.out.println(num" es número par");
+			System.out.println(num + " es número par");
 		}
 
 	}

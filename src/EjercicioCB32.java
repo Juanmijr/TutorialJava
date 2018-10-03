@@ -15,7 +15,7 @@ public class EjercicioCB32 {
 		case 1:
 			num1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese radicando"));
 			num2 = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el indice"));
-			JOptionPane.showMessageDialog(null, "Resultado: " + (Math.pow(num1, 1/num2)));
+			JOptionPane.showMessageDialog(null, "Resultado: " + (Math.pow(num1, (1/num2))));
 	break;
 		case 2:
 			num1 = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la base"));
