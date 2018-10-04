@@ -8,21 +8,90 @@ public class EjercicioCB21 {
 		int acumuladorBajos =0; //Acumulador para números negativos
 		int acumuladorMedios =0; //Acumulador para números negativos
 		int acumuladorAltos =0; //Acumulador para números negativos
-			int num1 = Integer.parseInt(JOptionPane.showInputDialog("Introduce un número"));
-			if (num1<0) {
-				acumuladorNegativos = acumuladorNegativos + num1;
+			
+//Primer número
+		int num = Integer.parseInt(JOptionPane.showInputDialog(texto));
+		
+		if (num < 0) {
+			acumuladorNegativos = acumuladorNegativos + num;
+		}
+		else {
+			if (num <= 25) {
+				acumuladorBajos = acumuladorBajos + num;
 			}
 			else {
-				if (num1<=25) {
-					acumuladorBajos = acumuladorBajos + num1;}
-					}
-					else (num1<=250) {
-						acumuladorMedios = acumuladorMedios + num1;
-					}
+				if (num <= 250) {
+					acumuladorMedios = acumuladorMedios + num;
+				}
 				else {
-					acumuladorAltos = acumuladorAltos + num1;
+					acumuladorAltos = acumuladorAltos + num;
 				}
 			}
-			}
-			
+		}
 		
+		// segundo número
+		num = Integer.parseInt(JOptionPane.showInputDialog(texto));
+		
+		if (num < 0) 
+			acumuladorNegativos = acumuladorNegativos + num;
+		else 
+			if (num <= 25)
+				acumuladorBajos = acumuladorBajos + num;
+			else 
+				if (num <= 250)
+					acumuladorMedios = acumuladorMedios + num;
+				else
+					acumuladorAltos = acumuladorAltos + num;
+			
+		// tercer número
+		num = Integer.parseInt(JOptionPane.showInputDialog(texto));
+		
+		if (num < 0) 
+			acumuladorNegativos += num;
+		else 
+			if (num <= 25)
+				acumuladorBajos += num;
+			else 
+				if (num <= 250)
+					acumuladorMedios += num;
+				else
+					acumuladorAltos += num;
+			
+		// cuarto número
+		num = Integer.parseInt(JOptionPane.showInputDialog(texto));
+		
+		if (num < 0) 
+			acumuladorNegativos += num;
+		else 
+			if (num <= 25)
+				acumuladorBajos += num;
+			else 
+				if (num <= 250)
+					acumuladorMedios += num;
+				else
+					acumuladorAltos += num;
+			
+		// quinto número
+		num = Integer.parseInt(JOptionPane.showInputDialog(texto));
+		
+		if (num < 0) 
+			acumuladorNegativos += num;
+		else 
+			if (num <= 25)
+				acumuladorBajos += num;
+			else 
+				if (num <= 250)
+					acumuladorMedios += num;
+				else
+					acumuladorAltos += num;
+
+		
+		// Resultados de las acumulaciones
+		
+		System.out.println("Acumulador negativos " + acumuladorNegativos);
+		System.out.println("Acumulador bajos " + acumuladorBajos);
+		System.out.println("Acumulador medios " + acumuladorMedios);
+		System.out.println("Acumulador altos " + acumuladorAltos);
+	}
+
+}
