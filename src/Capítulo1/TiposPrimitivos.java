@@ -1,4 +1,4 @@
-package tutorialjava.capitulo1;
+package Capítulo1;
 
 public class TiposPrimitivos {
 	

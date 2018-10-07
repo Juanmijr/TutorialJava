@@ -1,6 +1,4 @@
-package tutorialjava;
-
-import tutorialjava.capitulo1.TiposPrimitivos;
+package Capítulo1;
 
 public class Principal {
 

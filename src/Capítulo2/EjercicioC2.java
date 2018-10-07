@@ -1,3 +1,4 @@
+package Capítulo2;
 import javax.swing.JOptionPane;
 
 public class EjercicioC2 {

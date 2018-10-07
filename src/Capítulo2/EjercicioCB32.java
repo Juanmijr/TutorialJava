@@ -1,3 +1,4 @@
+package Capítulo2;
 import javax.swing.JOptionPane;
 
 public class EjercicioCB32 {
@@ -31,6 +32,8 @@ public class EjercicioCB32 {
 		
 
 		}
+		JOptionPane.showMessageDialog(null, mensaje);
+		
 	}
 
 }

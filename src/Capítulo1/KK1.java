@@ -1,4 +1,4 @@
-package CLASE;
+package Capítulo1;
 
 import javax.swing.JOptionPane;
 
