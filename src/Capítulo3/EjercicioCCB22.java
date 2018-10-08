@@ -5,20 +5,29 @@ import javax.swing.JOptionPane;
 public class EjercicioCCB22 {
 
 	public static void main(String[] args) {
-	int numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca número"));;
-		
-		for (int i = 0; i < 101; i++) {
-			if ((numero%1) ==0){
-				System.out.println("El número " + (i) + " es múltiplo de " + numero);
+		int numero = 1, mayor = 0, menor=99999999, a=0;
+			String mensaje = "Introduzca número ";
+			a = Integer.parseInt(JOptionPane.showInputDialog("¿Cuántos números quieres introducir?"));
+			for (int i = 0; i<(a); i++) {
+				if (i == 0) { // Primera iteración
+					mayor = Integer.parseInt(JOptionPane.showInputDialog(mensaje));
+					numero = mayor;
 				}
-			else{
-					System.out.println("El número " + (i) + " es múltiplo de " + numero);
-				}
+				else { // Resto de iteraciones
+					numero = Integer.parseInt(JOptionPane.showInputDialog(mensaje));
+					if (numero < mayor && numero != 0) {
+						menor=numero;}
+					if (numero > mayor && numero != 0) {
+						mayor = numero;
+						}
+					
+						}
+						
 			}
+			
+			JOptionPane.showMessageDialog(null, "Mayor: " + mayor + " Menor: " + menor );
 		}
+
 	}
-
-
-	
 
 
