@@ -2,7 +2,7 @@ package Capítulo5;
 
 import javax.swing.JOptionPane;
 
-public class numAlAzarArrayInverso {
+public class Ej2numAlAzarArrayInverso {
 
 	public static void main(String[] args) {
 		int array[]= new int [150];
