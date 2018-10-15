@@ -2,7 +2,7 @@ package Capítulo5;
 
 import javax.swing.JOptionPane;
 
-public class numAlAzarArray {
+public class numAlAzarArrayInverso {
 
 	public static void main(String[] args) {
 		int array[]= new int [150];
@@ -14,8 +14,10 @@ public class numAlAzarArray {
 			}
 				for (int i = 0; i < array.length; i++) {
 					System.out.print(array[i] + "  ");
-				
-
 	}
-			}
+				System.out.println("---------------------------------------------------------------------");
+				for (int i = 149; i > array.length; i--) {
+					System.out.print(array[i] + "  ");
+	}
+	}
 }
