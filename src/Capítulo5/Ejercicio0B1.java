@@ -2,7 +2,7 @@ package Capítulo5;
 
 import javax.swing.JOptionPane;
 
-public class Ej0numAlAzarArraysumamedia {
+public class Ejercicio0B1 {
 
 	public static void main(String[] args) {
 		int array[]= new int [150];
