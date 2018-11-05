@@ -5,6 +5,8 @@ import javax.swing.JOptionPane;
 public class Ejercicio0B1 {
 
 	public static void main(String[] args) {
+		
+	}
 		int array[]= new int [150];
 		int suma=0; 
 		int mayor=0;
@@ -13,10 +15,11 @@ public class Ejercicio0B1 {
 			for (int i = 0 ; i<array.length ; i++) {
 				array[i]= ((int)Math.round(Math.random()*(100)));
 			}
+			mayor = array[0];
+			menor = array[0];
+			suma = array[0];
 				for (int i = 0; i < array.length; i++) {
-					suma= suma+array[i];
-					mayor = array[i];
-					menor = array[i];
+					suma+=array[i];
 					if (array[i]<mayor) {
 						array[i] = mayor;
 					}
@@ -37,4 +40,4 @@ public class Ejercicio0B1 {
 				JOptionPane.showMessageDialog(null, "El número menor es: " + menor);
 				
 	}
-}
+
