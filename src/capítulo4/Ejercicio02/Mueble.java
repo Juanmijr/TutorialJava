@@ -8,10 +8,10 @@ public class Mueble extends Antiguedad {
 		super();
 		this.epoca="Sin especificar";
 	}
-
+	
 	public Mueble(int anyoFabricacion, String origen, float precio) {
 		super(anyoFabricacion, origen, precio);
-		this.epoca = epoca;
+		epoca = epoca;
 	}
 
 	public String getEpoca() {
@@ -21,6 +21,15 @@ public class Mueble extends Antiguedad {
 	public void setEpoca(String epoca) {
 		this.epoca = epoca;
 	}
+
+	@Override
+	public String toString() {
+		return "Mueble [epoca=" + epoca + ", getEpoca()=" + getEpoca() + ", getAnyoFabricacion()="
+				+ getAnyoFabricacion() + ", getOrigen()=" + getOrigen() + ", getPrecio()=" + getPrecio()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
+	}
+	
 	
 	
 }
