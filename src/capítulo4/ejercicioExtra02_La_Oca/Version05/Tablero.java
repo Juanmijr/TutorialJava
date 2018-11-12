@@ -5,7 +5,6 @@ public class Tablero {
 	public static String msjOca = "De oca a oca y tiro porque me toca";
 	public static String msjPuente = "De puente a puente y tiro porque me da la corriente";
 	public static String msjDado = "De dado a dado y tiro porque me ha tocado";
-	
 	Casilla tablero[] = new Casilla[63];
 	
 	/**
@@ -118,6 +117,15 @@ public class Tablero {
 					tablero[i].getNombre());
 		}
 	}
+
+	public Casilla[] getTablero() {
+		return tablero;
+	}
+
+	public void setTablero(Casilla[] tablero) {
+		this.tablero = tablero;
+	}
+	
 	
 
 

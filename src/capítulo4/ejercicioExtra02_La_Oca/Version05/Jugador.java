@@ -3,6 +3,7 @@ package capítulo4.ejercicioExtra02_La_Oca.Version05;
 public class Jugador {
 	private String nombre;
 	private int posicion = 0;
+	private Tablero tablero;
 	
 	/**
 	 * 
@@ -21,6 +22,13 @@ public class Jugador {
 	}
 	
 	
+	public Jugador(String nombre, int posicion, Tablero tablero) {
+		super();
+		this.nombre = nombre;
+		this.posicion = posicion;
+		this.tablero = tablero;
+	}
+
 	/**
 	 * 
 	 */
@@ -28,9 +36,8 @@ public class Jugador {
 		int dado =  (int) Math.round(Math.random()*(6-1)+1);
 		System.out.println("Dado " + dado);
 		this.posicion += dado;
-		
-		if(posicion> 62) {
-			this.posicion = 62 - (this.posicion - 62);
+		if(posicion> tablero.getTablero().length) {
+			this.posicion =  tablero.getTablero().length - (this.posicion -  tablero.getTablero().length);
 		}
 	}
 	
