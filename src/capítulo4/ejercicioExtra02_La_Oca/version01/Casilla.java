@@ -1,4 +1,4 @@
-package capítulo4.ejercicioExtra02_La_Oca.version01;
+package tutorialJava.capitulo4_OO.ejercicios.ejercicioExtra02_La_Oca.version01;
 
 public class Casilla {
 	private int orden;

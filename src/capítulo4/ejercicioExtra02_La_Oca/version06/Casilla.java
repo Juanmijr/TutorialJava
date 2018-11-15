@@ -1,6 +1,6 @@
-package capítulo4.ejercicioExtra02_La_Oca.Version05;
+package capítulo4.ejercicioExtra02_La_Oca.version06;
 
-public class Casilla {
+public class Casilla {  
 	private int orden;
 	private String nombre;
 	private Casilla destino;

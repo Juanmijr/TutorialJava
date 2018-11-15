@@ -1,4 +1,4 @@
-package capÃ­tulo4.ejercicioExtra02_La_Oca.version04;
+package tutorialJava.capitulo4_OO.ejercicios.ejercicioExtra02_La_Oca.version04;
 
 public class Tablero {
 
@@ -17,10 +17,10 @@ public class Tablero {
 	}
 	
 	/**
-	 * Inicializaciï¿½n del tablero
+	 * Inicialización del tablero
 	 */
 	public void inicializaTablero () {
-		// Estructa bï¿½sica del tablero
+		// Estructa básica del tablero
 		tablero[0] = new Casilla(1, "Inicio");
 		tablero[1] = new Casilla(2, "Caballo");
 		tablero[2] = new Casilla(3, "Pez");
@@ -30,14 +30,14 @@ public class Tablero {
 		tablero[6] = new Casilla(7, "Tortuga");
 		tablero[7] = new Casilla(8, "Silla");
 		tablero[8] = new Casilla(9, "Oca", null, 1, msjOca);
-		tablero[9] = new Casilla(10, "Ratï¿½n");
+		tablero[9] = new Casilla(10, "Ratón");
 		tablero[10] = new Casilla(11, "Rana");
 		tablero[11] = new Casilla(12, "Puente", null, 1, msjPuente);
 		tablero[12] = new Casilla(13, "Pollito");
 		tablero[13] = new Casilla(14, "Oca", null, 1, msjOca);
 		tablero[14] = new Casilla(15, "Helado");
 		tablero[15] = new Casilla(16, "Osito");
-		tablero[16] = new Casilla(17, "Bebï¿½");
+		tablero[16] = new Casilla(17, "Bebé");
 		tablero[17] = new Casilla(18, "Oca", null, 1, msjOca);
 		tablero[18] = new Casilla(19, "Posada", null, -1, "");
 		tablero[19] = new Casilla(20, "Cohete");
@@ -45,12 +45,12 @@ public class Tablero {
 		tablero[21] = new Casilla(22, "Casa");
 		tablero[22] = new Casilla(23, "Oca", null, 1, msjOca);
 		tablero[23] = new Casilla(24, "Ramo de flores");
-		tablero[24] = new Casilla(25, "Leï¿½n");
+		tablero[24] = new Casilla(25, "León");
 		tablero[25] = new Casilla(26, "Dado", null, 1, msjDado);
 		tablero[26] = new Casilla(27, "Oca", null, 1, msjOca);
 		tablero[27] = new Casilla(28, "Bicicleta");
-		tablero[28] = new Casilla(29, "Delfï¿½n");
-		tablero[29] = new Casilla(30, "Dragï¿½n");
+		tablero[28] = new Casilla(29, "Delfín");
+		tablero[29] = new Casilla(30, "Dragón");
 		tablero[30] = new Casilla(31, "Pozo", null, -3, "");
 		tablero[31] = new Casilla(32, "Oca", null, 1, msjOca);
 		tablero[32] = new Casilla(33, "Mariposa");
@@ -67,16 +67,16 @@ public class Tablero {
 		tablero[43] = new Casilla(44, "Paraguas");
 		tablero[44] = new Casilla(45, "Oca", null, 1, msjOca);
 		tablero[45] = new Casilla(46, "Conejito");
-		tablero[46] = new Casilla(47, "Muï¿½eco de nieve");
+		tablero[46] = new Casilla(47, "Muñeco de nieve");
 		tablero[47] = new Casilla(48, "Mariposa");
 		tablero[48] = new Casilla(49, "Tren");
 		tablero[49] = new Casilla(50, "Oca", null, 1, msjOca);
 		tablero[50] = new Casilla(51, "Mono");
-		tablero[51] = new Casilla(52, "Cï¿½rcel", null, -2, "");
+		tablero[51] = new Casilla(52, "Cárcel", null, -2, "");
 		tablero[52] = new Casilla(53, "Dado", null, 1, msjDado);
 		tablero[53] = new Casilla(54, "Oca", null, 1, msjOca);
 		tablero[54] = new Casilla(55, "Buho");
-		tablero[55] = new Casilla(56, "Tiburï¿½n");
+		tablero[55] = new Casilla(56, "Tiburón");
 		tablero[56] = new Casilla(57, "Perro");
 		tablero[57] = new Casilla(58, "Muerte", null, 0, "Has muerto");
 		tablero[58] = new Casilla(59, "Oca", null, 1, msjOca);
@@ -110,7 +110,7 @@ public class Tablero {
 	
 	
 	/**
-	 * Impresiï¿½n del tablero en la consola de salida
+	 * Impresión del tablero en la consola de salida
 	 */
 	public void imprimeTablero () {
 		for (int i = 0; i < tablero.length; i++) {

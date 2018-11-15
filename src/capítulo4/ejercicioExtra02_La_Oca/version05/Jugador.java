@@ -1,4 +1,4 @@
-package capítulo4.ejercicioExtra02_La_Oca.Version05;
+package tutorialJava.capitulo4_OO.ejercicios.ejercicioExtra02_La_Oca.version05;
 
 public class Jugador {
 	private String nombre;
@@ -16,34 +16,29 @@ public class Jugador {
 	 * @param nombre
 	 * @param posicion
 	 */
-	public Jugador(String nombre) {
+	public Jugador(String nombre, Tablero tablero) {
 		super();
 		this.nombre = nombre;
-	}
-	
-	
-	public Jugador(String nombre, int posicion, Tablero tablero) {
-		super();
-		this.nombre = nombre;
-		this.posicion = posicion;
 		this.tablero = tablero;
 	}
-
+	
+	
 	/**
 	 * 
 	 */
 	public void tirarDado () {
-		int dado =  (int) Math.round(Math.random()*(6-1)+1);
-		System.out.println("Dado " + dado);
+		int dado = (int) Math.round(Math.random()*(6-1)+1);
 		this.posicion += dado;
-		if(posicion> tablero.getTablero().length) {
-			this.posicion =  tablero.getTablero().length - (this.posicion -  tablero.getTablero().length);
+		if (this.posicion > tablero.getCasillas().length) {
+			this.posicion = tablero.getCasillas().length - 
+					(this.posicion - tablero.getCasillas().length);
 		}
+		
 	}
 	
 	
 	public void imprimir() {
-		System.out.println(this.nombre + " - pos: " + (this.posicion+1));
+		System.out.println(this.nombre + " - pos: " + this.posicion);
 	}
 	
 	/**
