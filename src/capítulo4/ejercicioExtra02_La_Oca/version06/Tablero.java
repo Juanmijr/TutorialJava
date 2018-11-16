@@ -1,4 +1,5 @@
-package capÃ­tulo4.ejercicioExtra02_La_Oca.version06;
+package capítulo4.ejercicioExtra02_La_Oca.version06;
+
 
 public class Tablero {  
 
@@ -40,14 +41,14 @@ public class Tablero {
 		casillas[6] = new Casilla(7, "Tortuga");
 		casillas[7] = new Casilla(8, "Silla");
 		casillas[8] = new Casilla(9, "Oca", null, 1, msjOca);
-		casillas[9] = new Casilla(10, "RatÃ³n");
+		casillas[9] = new Casilla(10, "Ratón");
 		casillas[10] = new Casilla(11, "Rana");
 		casillas[11] = new Casilla(12, "Puente", null, 1, msjPuente);
 		casillas[12] = new Casilla(13, "Pollito");
 		casillas[13] = new Casilla(14, "Oca", null, 1, msjOca);
 		casillas[14] = new Casilla(15, "Helado");
 		casillas[15] = new Casilla(16, "Osito");
-		casillas[16] = new Casilla(17, "BebÃ©");
+		casillas[16] = new Casilla(17, "Bebé");
 		casillas[17] = new Casilla(18, "Oca", null, 1, msjOca);
 		casillas[18] = new Casilla(19, "Posada", null, -1, "");
 		casillas[19] = new Casilla(20, "Cohete");
@@ -55,12 +56,12 @@ public class Tablero {
 		casillas[21] = new Casilla(22, "Casa");
 		casillas[22] = new Casilla(23, "Oca", null, 1, msjOca);
 		casillas[23] = new Casilla(24, "Ramo de flores");
-		casillas[24] = new Casilla(25, "Leï¿½n");
+		casillas[24] = new Casilla(25, "León");
 		casillas[25] = new Casilla(26, "Dado", null, 1, msjDado);
 		casillas[26] = new Casilla(27, "Oca", null, 1, msjOca);
 		casillas[27] = new Casilla(28, "Bicicleta");
-		casillas[28] = new Casilla(29, "Delfï¿½n");
-		casillas[29] = new Casilla(30, "Dragï¿½n");
+		casillas[28] = new Casilla(29, "Delfín");
+		casillas[29] = new Casilla(30, "Dragón");
 		casillas[30] = new Casilla(31, "Pozo", null, -3, "");
 		casillas[31] = new Casilla(32, "Oca", null, 1, msjOca);
 		casillas[32] = new Casilla(33, "Mariposa");
@@ -125,15 +126,17 @@ public class Tablero {
 	 * @return
 	 */
 	public static Casilla getCasillaDestino (Casilla casilla, int dado) {
-		//Sumo dado a la posiciÃ³n actual
-		int posicion = Tablero.getPosicion(casilla);		
-		posicion += dado;
-				//CÃ¡lculo de posible rebote
-				posicion = getNuevaPosicionPorRebote(posicion);
-				//Comprobamos si estamos en una casilla actual
-				posicion = getNuevaPosicionPorCasillaEspecial(posicion);
-				return Tablero.getTablero().getCasillas()[posicion];
-					
+		// Sumo el dado a la posición actual
+		int posicion = Tablero.getPosicion(casilla); 
+		
+		posicion += dado; 
+
+		// Cálculo del posible rebote
+		posicion = getNuevaPosicionPorRebote(posicion);
+		// Comprobamos si estamos en una casilla especial
+		posicion = getNuevaPosicionPorCasillaEspecial(posicion);
+		
+		return Tablero.getTablero().getCasillas()[posicion];
 	}
 		
 	
@@ -141,25 +144,31 @@ public class Tablero {
 	private static int getNuevaPosicionPorRebote (int posicion) {
 		int indiceCasillaMeta = Tablero.getTablero().getCasillas().length-1;
 		if (posicion > indiceCasillaMeta){
-			posicion = 2*indiceCasillaMeta - posicion;
+			posicion = 2 * indiceCasillaMeta - posicion;
 			}
 		return posicion;
 	}
 	
+	
+	/**
+	 * 
+	 * @param posicion
+	 * @return
+	 */
 	private static int getNuevaPosicionPorCasillaEspecial (int posicion) {
-	//Puntero a la casilla correspondiente del array 
-		Casilla casillaActual= Tablero.getTablero().getCasillas()[posicion];
-	//Busco un destino de la casilla actual
-		if(casillaActual.getDestino()!= null) { //Hay un destino
-			//Puntero a la casilla de destino, despuÃ©s de la tirada
-			Casilla casilladestino = casillaActual.getDestino();
-			//Actualizar la posiciÃ³n del jugador, teniendo en cuenta que ha caido
-			//en una casilla especial
-			posicion = casilladestino.getOrden()-1;
-			
+		// Puntero a la casilla correspondiente del array
+		Casilla casillaActual = Tablero.getTablero().getCasillas()[posicion];		
+		// Busco un destino de la casilla actual
+		if (casillaActual.getDestino() != null) { // Hay un destino
+			// Puntero a la casilla de destino, después de la tirada
+			Casilla casillaDestino = casillaActual.getDestino();
+			// Imprimo el mensaje especial de la casilla de destino
+			System.out.println("\t" + casillaActual.getMensajeEspecial());
+			// Actualizar la posición del jugador, teniendo en cuenta que ha
+			// caído en una casilla con destino, una casilla especial
+			posicion = casillaDestino.getOrden() - 1;
 		}
-		
-		return posicion
+		return posicion;
 	}
 	
 	/**
@@ -182,6 +191,10 @@ public class Tablero {
 	 */
 	public static Casilla getUltimaCasillaEnTablero() {
 		return Tablero.getTablero().getCasillas()[Tablero.getTablero().getCasillas().length-1];
+	}
+	
+	public static Casilla getPrimeraCasillaEnTablero() {
+		return Tablero.getTablero().getCasillas()[0];
 	}
 	
 	

@@ -1,4 +1,4 @@
-package capÃ­tulo4.ejercicioExtra02_La_Oca.version06;
+package capítulo4.ejercicioExtra02_La_Oca.version06;
 
 public class Principal {  
 
@@ -14,7 +14,9 @@ public class Principal {
 			jugador.tirarDado();
 			//jugador.imprimir();
 		} while(!jugador.isTerminado());
+		
+		System.out.println("\t HAS GANADO EL JUEGO DE LA OCA!!");
 	}
 	
-	
+
 }

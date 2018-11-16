@@ -1,9 +1,11 @@
-package capÃ­tulo4.ejercicioExtra02_La_Oca.version06;
+package capítulo4.ejercicioExtra02_La_Oca.version06;
 
 
-public class Jugador {  
+
+public class Jugador {   
 	private String nombre;
 	private Casilla casilla;
+
 	/**
 	 * 
 	 */
@@ -18,6 +20,7 @@ public class Jugador {
 	public Jugador(String nombre) {
 		super();
 		this.nombre = nombre;
+		this.casilla = Tablero.getPrimeraCasillaEnTablero();
 	}
 	
 	
@@ -25,23 +28,28 @@ public class Jugador {
 	 * 
 	 */
 	public void tirarDado () {
-		//Imprimo en la consola la casilla, antes del movimiento
+		// Imprimo en la consola la casilla, antes del movimiento		
 		System.out.println(this.casilla);
-		//Inicializo dado
-		int dado =(int) Math.round(Math.random()*(6-1)+1);
-		System.out.println("\tDado: " + dado);
+
+		// Utilizamos el azar para conseguir un dado virtual
+		int dado = (int) Math.round(Math.random()*(6-1)+1);
+		System.out.println("\tDado: " + dado); 
 
 		this.casilla = Tablero.getCasillaDestino(this.casilla, dado);
+		//		JOptionPane.showMessageDialog(null, "alto");
 		
-		}
+	}
 	
-	
-	public boolean isTerminado() {
-		
-		if(this.casilla==Tablero.getUltimaCasillaEnTablero()) {
+
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isTerminado () {
+		if (this.casilla.equals(Tablero.getUltimaCasillaEnTablero())) {
 			return true;
 		}
-	return false;
+		return false;
 	}
 	
 	
@@ -57,14 +65,17 @@ public class Jugador {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	/**
-	 * @return the posicion
-	 */
 
+	/**
+	 * @return the casilla
+	 */
 	public Casilla getCasilla() {
 		return casilla;
 	}
 
+	/**
+	 * @param casilla the casilla to set
+	 */
 	public void setCasilla(Casilla casilla) {
 		this.casilla = casilla;
 	}
