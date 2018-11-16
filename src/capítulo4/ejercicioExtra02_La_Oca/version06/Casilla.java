@@ -1,6 +1,7 @@
 package capítulo4.ejercicioExtra02_La_Oca.version06;
 
 public class Casilla {  
+
 	private int orden;
 	private String nombre;
 	private Casilla destino;
@@ -69,6 +70,9 @@ public class Casilla {
 	public void setMensajeEspecial(String mensajeEspecial) {
 		this.mensajeEspecial = mensajeEspecial;
 	}
-	
+	@Override
+	public String toString() {
+		return "Casilla [orden=" + orden + ", nombre=" + nombre + "]";
+	}
 	
 }

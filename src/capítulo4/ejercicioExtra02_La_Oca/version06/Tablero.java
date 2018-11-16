@@ -118,6 +118,72 @@ public class Tablero {
 		
 	}
 	
+	/**
+	 * 
+	 * @param posicion
+	 * @param dado
+	 * @return
+	 */
+	public static Casilla getCasillaDestino (Casilla casilla, int dado) {
+		//Sumo dado a la posición actual
+		int posicion = Tablero.getPosicion(casilla);		
+		posicion += dado;
+				//Cálculo de posible rebote
+				posicion = getNuevaPosicionPorRebote(posicion);
+				//Comprobamos si estamos en una casilla actual
+				posicion = getNuevaPosicionPorCasillaEspecial(posicion);
+				return Tablero.getTablero().getCasillas()[posicion];
+					
+	}
+		
+	
+	
+	private static int getNuevaPosicionPorRebote (int posicion) {
+		int indiceCasillaMeta = Tablero.getTablero().getCasillas().length-1;
+		if (posicion > indiceCasillaMeta){
+			posicion = 2*indiceCasillaMeta - posicion;
+			}
+		return posicion;
+	}
+	
+	private static int getNuevaPosicionPorCasillaEspecial (int posicion) {
+	//Puntero a la casilla correspondiente del array 
+		Casilla casillaActual= Tablero.getTablero().getCasillas()[posicion];
+	//Busco un destino de la casilla actual
+		if(casillaActual.getDestino()!= null) { //Hay un destino
+			//Puntero a la casilla de destino, después de la tirada
+			Casilla casilladestino = casillaActual.getDestino();
+			//Actualizar la posición del jugador, teniendo en cuenta que ha caido
+			//en una casilla especial
+			posicion = casilladestino.getOrden()-1;
+			
+		}
+		
+		return posicion
+	}
+	
+	/**
+	 * 
+	 * @param casilla
+	 * @return
+	 */
+	private static int getPosicion (Casilla casilla) {
+		for (int i =0 ; i< Tablero.getTablero().getCasillas().length; i++) {
+			if(Tablero.getTablero().getCasillas()[i].equals(casilla)) {
+				return i;
+			}
+		}
+	return -1;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public static Casilla getUltimaCasillaEnTablero() {
+		return Tablero.getTablero().getCasillas()[Tablero.getTablero().getCasillas().length-1];
+	}
+	
 	
 	/**
 	 * Impresi�n del tablero en la consola de salida
@@ -142,6 +208,8 @@ public class Tablero {
 	public void setCasillas(Casilla[] casillas) {
 		this.casillas = casillas;
 	}
+	
+	
 	
 
 	

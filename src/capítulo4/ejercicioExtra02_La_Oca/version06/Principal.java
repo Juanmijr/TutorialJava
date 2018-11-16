@@ -12,8 +12,8 @@ public class Principal {
 		Jugador jugador = new Jugador("Rojo");
 		do {
 			jugador.tirarDado();
-			jugador.imprimir();
-		} while(jugador.getPosicion() < 62);
+			//jugador.imprimir();
+		} while(!jugador.isTerminado());
 	}
 	
 	
