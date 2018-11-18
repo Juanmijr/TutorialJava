@@ -1,5 +1,7 @@
 package capítulo4.ejercicioExtra02_La_Oca.version06;
 
+import javax.swing.JOptionPane;
+
 public class Principal {  
 
 	/**
@@ -9,6 +11,7 @@ public class Principal {
 			
 		
 		// Prueba de uso del primer jugador
+		Juego juego = new Juego(Integer.parseInt(JOptionPane.showInputDialog("¿Cuántos jugadores van a jugar?")));
 		Jugador jugador = new Jugador("Rojo");
 		do {
 			jugador.tirarDado();
