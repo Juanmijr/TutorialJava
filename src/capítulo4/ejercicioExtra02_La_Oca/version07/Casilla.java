@@ -1,4 +1,4 @@
-package capítulo4.ejercicioExtra02_La_Oca.version06;
+package capítulo4.ejercicioExtra02_La_Oca.version07;
 
 
 public class Casilla {   

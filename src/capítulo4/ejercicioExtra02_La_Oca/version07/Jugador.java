@@ -1,10 +1,12 @@
-package capítulo4.ejercicioExtra02_La_Oca.version06;
+package capítulo4.ejercicioExtra02_La_Oca.version07;
 
 
 
 public class Jugador {   
 	private String nombre;
 	private Casilla casilla;
+	private int podium;
+	
 
 	/**
 	 * 
@@ -53,6 +55,7 @@ public class Jugador {
 	}
 	
 	
+	
 	/**
 	 * @return the nombre
 	 */
@@ -79,6 +82,15 @@ public class Jugador {
 	public void setCasilla(Casilla casilla) {
 		this.casilla = casilla;
 	}
+
+	public int getPodium() {
+		return podium;
+	}
+
+	public void setPodium(int podium) {
+		this.podium = podium;
+	}
+
 
 	
 }
