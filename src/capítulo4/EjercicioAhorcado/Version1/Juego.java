@@ -33,10 +33,15 @@ public class Juego {
 							coincidencias[i]=decision;
 							System.out.print(" " + coincidencias[i] + " ");
 						}
-						else {
-							
-						}	
-						}
+					}	
+				}
+				else {
+					for (int i=0;i<fallos.length;i++) {
+					contFallos++;
+					fallos[i]=respuesta;
+					System.out.print("Fallos: " + fallos[i]+ "  ");
+					}
+						
 				}
 			}
 //
