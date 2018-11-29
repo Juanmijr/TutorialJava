@@ -7,13 +7,11 @@ public class Juego {
 	public static void main(String[] args) {
 		String palabras [] = new String [] {"tabla", "pelo", "avion"}; 
 		String palabra = palabras [((int)Math.round(Math.random()*(palabras.length -1)))];
-		String fallos [] = new String [6];
+		String fallosLetras [] = new String [6];
+		String fallosPalabras[]= new String [6];
 		int contFallos=0;
-		boolean aciertos;
-		boolean fallos6;
+		boolean existeLetra=false;
 		int numintentos=palabra.length();
-		char barra = '_';
-		int contBarras;
 		char coincidencias[]= new char [palabra.length()];
 		for(int i = 0; i<palabra.length();i++) {
 			coincidencias[i]= '_';		
@@ -21,13 +19,13 @@ public class Juego {
 		
 		String respuesta;
 		do {
+			existeLetra=false;
 			//Petici�n de respuestas
 			respuesta = JOptionPane.showInputDialog("Introduzca la letra o palabra de la palabra");
 			// Si la respuesta es igual que la palabra 
-			if (respuesta.equals(palabra)) {
-				aciertos = true;
+			if (respuesta.length()>1 && !respuesta.equals(palabra)) {
+				contFallos++;
 			}
-			else {
 				if (respuesta.length()==1) {
 					System.out.println();
 					for (int i = 0; i<palabra.length();i++) {
@@ -36,30 +34,24 @@ public class Juego {
 						if (letraPalabra==decision) {
 							coincidencias[i]=decision;
 							numintentos--;
+							existeLetra=true;
 						}
 						System.out.print(" " + coincidencias[i] + " ");
-						
-						
 					
 					}	
 				}
-					else {
-						for (int i=0;i<fallos.length;i++) {
+					if(existeLetra==false) {
 						contFallos++;
-						fallos[i]=respuesta;
-						if(contFallos>=6){
-							fallos6=true;
 						}
-						}
-					}
-			}
+					
+
 			
 
-		}while (respuesta.equals(palabra)||pala);
+		}while (!(respuesta.equals(palabra)||(contFallos>=6)||(numintentos==0)));
 		System.out.println("\n\nEnhorabuena has acertado");
-	
+		System.out.println("Los errores son: ");
 
+	}
 
-}
 }
 
