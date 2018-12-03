@@ -5,19 +5,22 @@ import javax.swing.JOptionPane;
 public class Juego {
 
 	
-		String palabras [] = new String [] {"tabla", "pelo", "avion"}; 
-		String palabra = palabras [((int)Math.round(Math.random()*(palabras.length -1)))];
-		String fallo [] = new String [6];
-		int contIndice = 0;
-		int contFallos=0;
-		boolean existeLetra=false;
-		int numintentos=palabra.length();
-		char coincidencias[]= new char [palabra.length()];
-		for(int i = 0; i<palabra.length();i++) {
-			coincidencias[i]= '_';		
-		}
+		static String palabras [] = new String [] {"tabla", "pelo", "avion"}; 
+		static String palabra = palabras [((int)Math.round(Math.random()*(palabras.length -1)))];
+		static String fallo [] = new String [6];
+		static int contIndice = 0;
+		static int contFallos=0;
+		static boolean existeLetra=false;
+		static int numintentos=palabra.length();
+		static String respuesta;
+		static char[] coincidencias= new char [palabra.length()];
 		
-		String respuesta;
+		
+	public static void comienzajuego() {
+
+	for(int i = 0; i<palabra.length();i++) {
+		coincidencias[i]= '_';		
+	}
 		do {
 			existeLetra=false;
 			//Petici�n de respuestas
@@ -67,18 +70,11 @@ public class Juego {
 			
 
 		}while (!(respuesta.equals(palabra)||(contFallos>=6)||(numintentos==0)));
-		if(respuesta.equals(palabra)) {
-			System.out.println("\n\nEnhorabuena has acertado");
-		}
-			if(contFallos>=6) {
-				System.out.println("\n\nHas sobrepasado el número de fallos");
-			}
-			if(numintentos==0) {
-				
-			}
-
-
 	}
+		
+
 
 }
+
+
 
