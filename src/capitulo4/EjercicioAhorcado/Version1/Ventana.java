@@ -1,4 +1,4 @@
-package capítulo4.EjercicioAhorcado.Version1;
+package capitulo4.EjercicioAhorcado.Version1;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -50,6 +50,10 @@ public class Ventana extends Canvas {
 		 */
 		@Override
 		public void paint(Graphics g) {
+			//Imagen
+			// Pintamos la imagen del tablero sobre la pantalla
+			g.drawImage(CacheImagenes.getCache().getImagen("betis.png"), 0, 0, this);
+			
 			//Primer bloque
 			g.setColor(Color.black);
 			g.fillRect(100, 350, 150, 35);
@@ -83,10 +87,8 @@ public class Ventana extends Canvas {
 			//Pierna derecha
 			g.setColor(Color.decode("#ff9966"));
 			g.fillRect(444, 260, 23, 70);
-			//ahorcado
-			g.setColor(Color.RED);
-			g.fillRect(412, 150, 60, 3);
-			
+			//Array de palabra
+		
 
 		}
 

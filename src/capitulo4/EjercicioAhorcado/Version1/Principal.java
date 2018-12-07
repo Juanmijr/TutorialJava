@@ -1,4 +1,4 @@
-package capítulo4.EjercicioAhorcado.Version1;
+package capitulo4.EjercicioAhorcado.Version1;
 
 public class Principal {
 	
