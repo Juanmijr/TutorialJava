@@ -4,9 +4,10 @@ public class Principal {
 	
 	public static void main(String[] args) {
 		//Crea la ventana 
-		Ventana ventana = new Ventana ();
+		Ventana.getventana();
 		//Comienza el juego
 		Juego.comienzajuego();
+	
 	}
 	
 	
