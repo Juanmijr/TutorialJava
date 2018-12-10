@@ -7,6 +7,8 @@ public class Principal {
 		Ventana.getventana();
 		//Comienza el juego
 		Juego.comienzajuego();
+		
+	
 	
 	}
 	

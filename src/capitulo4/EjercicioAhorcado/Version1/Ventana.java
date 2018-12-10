@@ -2,6 +2,7 @@ package capitulo4.EjercicioAhorcado.Version1;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
@@ -65,6 +66,11 @@ public class Ventana extends Canvas {
 			// Pintamos la imagen del tablero sobre la pantalla
 			g.drawImage(CacheImagenes.getCache().getImagen("betis.png"), 0, 0, this);
 			
+			if(Juego.navidad==true) {
+				// Pintamos la imagen del tablero sobre la pantalla
+				g.drawImage(CacheImagenes.getCache().getImagen("navida.jpg"), 0, 0, this);
+			}
+	
 			//Primer bloque
 			g.setColor(Color.black);
 			g.fillRect(100, 350, 150, 35);
@@ -80,75 +86,68 @@ public class Ventana extends Canvas {
 			//LÃ­nea vertical - cabeza
 			g.setColor(Color.black);
 			g.fillRect(435, 37, 15, 85);
-			//Cabeza
-			g.setColor(Color.decode("#ff9966"));
-			g.fillOval(416, 100, 50, 50);
+
 			//Primer error
-			if(Juego.getJuego().contFallos>0) {
-				//Cabeza roja
-				g.setColor(Color.red);
+			if(Juego.contFallos>0) {
+				//Cabeza
+				g.setColor(Color.decode("#ff9966"));
 				g.fillOval(416, 100, 50, 50);
 			}
-			//Cuerpo
-			g.setColor(Color.decode("#ff9966"));
-			g.fillRect(417, 150, 50, 110);
 			//Segundo error
-			if(Juego.getJuego().contFallos>1) {
-				g.setColor(Color.red);
+			if(Juego.contFallos>1) {
+				//Cuerpo
+				g.setColor(Color.decode("#ff9966"));
 				g.fillRect(417, 150, 50, 110);
+			
 			}
-			//Brazo izq
-			g.setColor(Color.decode("#ff9966"));
-			g.fillRect(390, 150, 25, 70);
 			//Tercer error
-			if(Juego.getJuego().contFallos>2) {
-				g.setColor(Color.red);
+			if(Juego.contFallos>2) {
+				//Brazo izq
+				g.setColor(Color.decode("#ff9966"));
 				g.fillRect(390, 150, 25, 70);
 			}
-			//Brazo derecho
-			g.setColor(Color.decode("#ff9966"));
-			g.fillRect(469, 150, 25, 70);
+
 			//Cuarto error
-			if(Juego.getJuego().contFallos>3) {
-			g.setColor(Color.red);
-			g.fillRect(469, 150, 25, 70);
+			if(Juego.contFallos>3) {
+				//Brazo derecho
+				g.setColor(Color.decode("#ff9966"));
+				g.fillRect(469, 150, 25, 70);
 			}
-			//Pierna izquierda
-			g.setColor(Color.decode("#ff9966"));
-			g.fillRect(417, 260, 23, 70);
 			//Quinto error
-			if(Juego.getJuego().contFallos>4) {
-			g.setColor(Color.red);
-			g.fillRect(417, 260, 23, 70);
+			if(Juego.contFallos>4) {
+				//Pierna izquierda
+				g.setColor(Color.decode("#ff9966"));
+				g.fillRect(417, 260, 23, 70);
 			}
-			//Pierna derecha
-			g.setColor(Color.decode("#ff9966"));
-			g.fillRect(444, 260, 23, 70);
-			//Sexto error
-			if(Juego.getJuego().contFallos>5) {
-				g.setColor(Color.red);
-				g.fillRect(444, 260, 23, 70);	
+			if(Juego.contFallos>5) {
+				//Pierna derecha
+				g.setColor(Color.decode("#ff9966"));
+				g.fillRect(444, 260, 23, 70);
 			}
-			//Guía 
+		
+	
+			//Guï¿½a 
 			String pintarpalabras="";
-			for (int i=0; i<Juego.getJuego().coincidencias.length;i++) {
-				pintarpalabras+=Juego.getJuego().coincidencias[i]+" ";
+			for (int i=0; i<Juego.coincidencias.length;i++) {
+				pintarpalabras+=Juego.coincidencias[i]+" ";
 			}
 			
 			g.setColor(Color.BLACK);
 			g.drawString("Palabras: "+ pintarpalabras, 190, 100);
 			
-			g.setColor(Color.black);
-			g.drawString("Fallos: " + Juego.getJuego().contFallos, 190,	150);
 			
+			g.setColor(Color.black);
+			g.drawString("Fallos: " + Juego.contFallos, 190,	150);
+		
 			String pintarfallos="";
-			for (int i=0; i<Juego.getJuego().fallo.length;i++) {
-				pintarfallos+=Juego.getJuego().fallo[i]+" ";
-			}
-			g.setColor(Color.black);
-			g.drawString("Fallos: " + pintarfallos, 190, 200);
+			for (int i=0; i<Juego.fallo.length;i++) {
+			pintarfallos+=Juego.fallo[i]+" ";
 			
-		}		
+			g.setColor(Color.black);
+			g.drawString("Fallos: " + pintarfallos, 190, 20);
+			}
+		}
+				
 		public static  Ventana getventana() {
 			if(ventana==null) {
 				ventana = new Ventana();
