@@ -5,20 +5,20 @@ import javax.swing.JOptionPane;
 public class Juego {
 
 	
-		static String palabras[] = new String[] {"aburrido", "acido", "alegre", "alto", "amargo", "ancho", "atrevido", "azul", "bajo", "blanco", "blando", "bonito", "buen", "caliente", "capaz", "central", "chungo", "comun", "conocido", "contento", "corto", "debil", "delgado", "derecho", "diferente", "dificil", "dulce", "duro", "enfermo", "estrecho", "exterior", "facil", "falso", "famoso", "feo", "final", "fresco", "fr�o", "fuerte", "gordo", "grande", "guay", "guapo", "h�medo", "igual", "imposible", "interesante", "interior", "inutil", "izquierdo", "joven", "largo", "lento", "listo", "malo", "masivo", "mayor", "mejor", "menor", "mucho", "muerto", "musical", "nacional", "natural", "negro", "nuevo", "peor", "peque�o", "perfecto", "pobre", "poco", "popular", "posible", "primero", "principal", "proximo", "rapido", "raro", "real", "recto", "rico", "rojo", "salado", "sano", "seco", "segundo", "simple", "sinverguenza", "social", "solo", "soso", "temido", "tonto", "triste", "�til", "verdadero", "verde", "viejo", "vivo", "crema", "explosi�n", "navaja", "universidad", "llaves", "papa", "catre", "escuela", "codo", "mapa", "lima", "edificio", "hojas", "granizo", "mano", "musica", "habitacion", "abuelo", "templo", "plato", "botella", "casa", "planeta", "metal", "mono", "petroleo", "debate", "ruido", "herramienta", "anteojos", "zapato", "ojo", "ciente", "diente", "buzo", "puerta", "ensalada", "candidato", "diario", "hierro", "barco", "tecla", "departamento", "hipop�tamo", "�rbol", "discurso", "rucula", "lentejas", "reloj", "desodorante", "monta�as", "moño", "partido", "fiesta", "cafe", "guitarra", "martillo", "lapicera", "letra", "libreria", "rueda", "camisa", "sillon", "teclado", "pantalla", "tenedor", "pantalla", "tenedor", "agua", "cohete", "cesped", "parlante", "pestaña", "monitor", "hombre", "velero", "palo", "lentes", "nube", "castillo", "libro", "televisor", "telefono", "percha", "anillo", "pared", "cartas", "impresora", "luces", "bomba", "boligrafo", "gobierno", "enano", "persona", "guantes", "proyector", "muela", "remate", "cuaderno", "taladro", "chocolate", "caramelos", "angustia", "lluvia", "corbata", "periodico", "planta", "chupete", "oficina", "persiana", "silla", "pradera", "zoologico", "deporte", "recipiente", "fotografia", "ave", "refugio", "pantalon", "carne", "nieve", "humedad", "pistola", "tristeza", "sofa", "cama", "campera", "coche", "cinturon", "famoso", "madera", "piso", "malet�n", "diputado", "cuchillo", "candado", "luz", "ordenador", "radio", "cuadro", "calor", "teatro", "bala", "auriculares", "plastico", "libro", "aluminio", "agujeta", "sonido", "perro", "pelo", "felicidad", "servilleta", "sol", "estadistica", "mensaje", "rey", "presidencia", "colegio", "lampara", "flor", "tornillo", "abuela", "satelite"}; 
-		static String fallo [] = new String [100];
-		static String palabra= palabras [((int)Math.round(Math.random()*(palabras.length -1)))];
-		static int contIndice = 0;
-		static int contFallos=0;
-		public static Juego juego = null;
-		static boolean existeLetra=false;
-		static int numintentos=palabra.length();
-		static String respuesta;
-		static char[] coincidencias= new char [palabra.length()];
-		static boolean juegoTerminado = false;
-		static boolean bandera;
-		static boolean navidad;
-		static String palabrasNavidad[]= new String []{"reno","comida","familia", "velas", "pascua" };
+	static String palabras[] = new String[] {"aburrido", "acido", "alegre", "alto", "amargo", "ancho", "atrevido", "azul", "bajo", "blanco", "blando", "bonito", "buen", "caliente", "capaz", "central", "chungo", "comun", "conocido", "contento", "corto", "debil", "delgado", "derecho", "diferente", "dificil", "dulce", "duro", "enfermo", "estrecho", "exterior", "facil", "falso", "famoso", "feo", "final", "fresco", "fr�o", "fuerte", "gordo", "grande", "guay", "guapo", "h�medo", "igual", "imposible", "interesante", "interior", "inutil", "izquierdo", "joven", "largo", "lento", "listo", "malo", "masivo", "mayor", "mejor", "menor", "mucho", "muerto", "musical", "nacional", "natural", "negro", "nuevo", "peor", "peque�o", "perfecto", "pobre", "poco", "popular", "posible", "primero", "principal", "proximo", "rapido", "raro", "real", "recto", "rico", "rojo", "salado", "sano", "seco", "segundo", "simple", "sinverguenza", "social", "solo", "soso", "temido", "tonto", "triste", "�til", "verdadero", "verde", "viejo", "vivo", "crema", "explosi�n", "navaja", "universidad", "llaves", "papa", "catre", "escuela", "codo", "mapa", "lima", "edificio", "hojas", "granizo", "mano", "musica", "habitacion", "abuelo", "templo", "plato", "botella", "casa", "planeta", "metal", "mono", "petroleo", "debate", "ruido", "herramienta", "anteojos", "zapato", "ojo", "ciente", "diente", "buzo", "puerta", "ensalada", "candidato", "diario", "hierro", "barco", "tecla", "departamento", "hipop�tamo", "�rbol", "discurso", "rucula", "lentejas", "reloj", "desodorante", "monta�as", "moño", "partido", "fiesta", "cafe", "guitarra", "martillo", "lapicera", "letra", "libreria", "rueda", "camisa", "sillon", "teclado", "pantalla", "tenedor", "pantalla", "tenedor", "agua", "cohete", "cesped", "parlante", "pestaña", "monitor", "hombre", "velero", "palo", "lentes", "nube", "castillo", "libro", "televisor", "telefono", "percha", "anillo", "pared", "cartas", "impresora", "luces", "bomba", "boligrafo", "gobierno", "enano", "persona", "guantes", "proyector", "muela", "remate", "cuaderno", "taladro", "chocolate", "caramelos", "angustia", "lluvia", "corbata", "periodico", "planta", "chupete", "oficina", "persiana", "silla", "pradera", "zoologico", "deporte", "recipiente", "fotografia", "ave", "refugio", "pantalon", "carne", "nieve", "humedad", "pistola", "tristeza", "sofa", "cama", "campera", "coche", "cinturon", "famoso", "madera", "piso", "malet�n", "diputado", "cuchillo", "candado", "luz", "ordenador", "radio", "cuadro", "calor", "teatro", "bala", "auriculares", "plastico", "libro", "aluminio", "agujeta", "sonido", "perro", "pelo", "felicidad", "servilleta", "sol", "estadistica", "mensaje", "rey", "presidencia", "colegio", "lampara", "flor", "tornillo", "abuela", "satelite"}; 
+	static String fallo [] = new String [100];
+	static String palabra= palabras [((int)Math.round(Math.random()*(palabras.length -1)))];
+	static int contIndice = 0;
+	static int contFallos=0;
+	public static Juego juego = null;
+	static boolean existeLetra=false;
+	static int numintentos=palabra.length();
+	static String respuesta;
+	static char[] coincidencias= new char [palabra.length()];
+	static boolean juegoTerminado = false;
+	static boolean bandera;
+	static boolean navidad;
+	static String palabrasNavidad[]= new String []{"reno","comida","familia", "velas", "pascua" };
 		
 		
 	public static void comienzajuego() {
@@ -59,6 +59,7 @@ public class Juego {
 						//Imprimimos la letra
 						coincidencias[i]=letra;
 						Ventana.getventana().repaint();
+						
 					}
 				}
 			//Cheat 3 - navidad

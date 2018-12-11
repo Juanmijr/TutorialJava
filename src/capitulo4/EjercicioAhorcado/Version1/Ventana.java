@@ -22,10 +22,6 @@ public class Ventana extends Canvas {
 		public static Ventana ventana = null;
 		
 		
-		private BufferStrategy dobleBuffer;
-
-
-		
 		public Ventana () {
 			// La clase JFrame nos permite mostrar una ventana en pantalla
 			JFrame ventana = new JFrame("El juego del ahorcado");
@@ -52,7 +48,7 @@ public class Ventana extends Canvas {
 			
 			// Inicializo el doble buffer a partir del buffer del propio objeto Canvas
 			createBufferStrategy(2);
-			dobleBuffer = getBufferStrategy();
+			getBufferStrategy();
 		}
 		
 		
@@ -92,6 +88,10 @@ public class Ventana extends Canvas {
 				//Cabeza
 				g.setColor(Color.decode("#ff9966"));
 				g.fillOval(416, 100, 50, 50);
+				g.setColor(Color.black);
+				g.fillOval(430, 150, 2, 2);
+				g.setColor(Color.black);
+				g.fillOval(416, 100, 2, 2);
 			}
 			//Segundo error
 			if(Juego.contFallos>1) {
@@ -131,14 +131,15 @@ public class Ventana extends Canvas {
 			for (int i=0; i<Juego.coincidencias.length;i++) {
 				pintarpalabras+=Juego.coincidencias[i]+" ";
 			}
-			
+			//Impresión ventana palabras
 			g.setColor(Color.BLACK);
 			g.drawString("Palabras: "+ pintarpalabras, 190, 100);
 			
-			
+			//Impresion contador fallos
 			g.setColor(Color.black);
 			g.drawString("Fallos: " + Juego.contFallos, 190,	150);
-		
+			
+			//Impresion fallos array
 			String pintarfallos="";
 			for (int i=0; i<Juego.fallo.length;i++) {
 			pintarfallos+=Juego.fallo[i]+" ";
@@ -148,6 +149,7 @@ public class Ventana extends Canvas {
 			}
 		}
 				
+		//Singleton
 		public static  Ventana getventana() {
 			if(ventana==null) {
 				ventana = new Ventana();
