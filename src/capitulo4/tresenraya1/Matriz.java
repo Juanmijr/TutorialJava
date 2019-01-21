@@ -87,7 +87,7 @@ public class Matriz {
 			}
 			return true;
 		}
-		if (matriz[2][0] == matriz [2][1] && matriz[2][1] == matriz[2][2] && matriz[2][2] != 0) {
+		if (m(int) Math.round(Math.random()*100)atriz[2][0] == matriz [2][1] && matriz[2][1] == matriz[2][2] && matriz[2][2] != 0) {
 			if(matriz[2][0]==1) {
 				JOptionPane.showMessageDialog(null, "Ha ganado el jugador Rafa ");
 			}
