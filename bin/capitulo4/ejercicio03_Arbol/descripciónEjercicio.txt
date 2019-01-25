@@ -1,0 +1,8 @@
+El objetivo de lo que debes terminar en casa del ejercicio es
+que, una vez construído el árbol (que ya está hecho) debes crear
+un método que imprima en pantalla el valor de la propiedad
+"nombre" de cada uno de los elementos que forman parte del árbol.
+No es necesario hacerlo en un orden en particular pero, 
+partiendo sólo del objeto "tronco", debes asegurarte de que todos
+los elementos del árbol impriman en la consola su nombre, ya
+sean "ramas", "hojas" o "frutos".
