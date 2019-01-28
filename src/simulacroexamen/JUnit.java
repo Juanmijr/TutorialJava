@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 
-class Menormayor_primo1 {
+class JUnit {
 
 	@Test
 	void testNumeroMayor() {
