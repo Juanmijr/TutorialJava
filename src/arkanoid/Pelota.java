@@ -3,7 +3,7 @@ package arkanoid;
 public class Pelota extends Objetos {
 	protected int vx;
 	protected int vy;
-	boolean banderaver=true;
+	
 	
 	public Pelota(Stage stage) {
 		super(stage);
@@ -27,7 +27,10 @@ public class Pelota extends Objetos {
 	public void collision(Objetos a){
 		if (a instanceof Ladrillos) {
 		vy = -vy;
-		
+
+		}
+		if (a instanceof Nave) {
+			vy = -vy;
 		}
 	}
 

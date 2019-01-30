@@ -24,11 +24,10 @@ import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-
 
 public class Arkanoid extends Canvas implements Stage {
 
@@ -106,8 +105,8 @@ public class Arkanoid extends Canvas implements Stage {
 		pelota = new Pelota(this);
 		pelota.setX(Stage.WIDTH / 2);
 		pelota.setY(Stage.HEIGHT / 2);
-		pelota.setVx(2);
-		pelota.setVy(2);
+		pelota.setVx(1);
+		pelota.setVy(1);
 	}
 
 	public void updateWorld() {
@@ -131,7 +130,6 @@ public class Arkanoid extends Canvas implements Stage {
 		nave.paint(g);
 		pelota.paint(g);
 
-		g.setColor(Color.white);
 		strategy.show();
 	}
 
@@ -144,7 +142,10 @@ public class Arkanoid extends Canvas implements Stage {
 		while (isVisible()) {
 			updateWorld();
 			checkCollisions();
+			remove();
 			paintWorld();
+			
+
 			try {
 				Thread.sleep(SPEED);
 			} catch (InterruptedException e) {
@@ -155,32 +156,30 @@ public class Arkanoid extends Canvas implements Stage {
 	public void checkCollisions() {
 		Rectangle pelotaBounds = pelota.getBounds();
 		Rectangle naveBounds = nave.getBounds();
+		if (naveBounds.intersects(pelotaBounds) && pelotaBounds.intersects(naveBounds)) {
+			pelota.vy = -pelota.vy;
+		}
 		for (int i = 0; i < objets.size(); i++) {
 			Objetos a1 = (Objetos) objets.get(i);
 			Rectangle r1 = a1.getBounds();
 			if (r1.intersects(pelotaBounds)) {
 				pelota.collision(a1);
 				a1.collision(pelota);
+
 			}
-			for (int j = i + 1; j < objets.size(); j++) {
-				Objetos a2 = (Objetos) objets.get(j);
-				Rectangle r2 = a2.getBounds();
-				if (r1.intersects(r2)) {
-					a1.collision(a2);
-					a2.collision(a1);
-				}
-			}
-		}
-	}
-	
-	public void remove () {
-		for (int i = 0; i < objets.size(); i++) {
-			Ladrillos ladrillos = (Ladrillos)objets.get(i);
-		if (pelota.banderaver==false) {
 			
+
 		}
+
+	}
+
+	public void remove() {
+		for (int i = 0; i < objets.size(); i++) {
+			Ladrillos ladrillos = (Ladrillos) objets.get(i);
+			if (ladrillos.isTouched == true) {
+				objets.remove(i);
+			}
 		}
-		
 	}
 
 	public static void main(String[] args) {

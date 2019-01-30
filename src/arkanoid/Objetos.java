@@ -22,6 +22,7 @@ public class Objetos {
 	protected int frameSpeed;
 	protected int t;
 	protected Stage stage;
+	protected boolean markedForRemove;
 	protected SpriteCache spriteCache;
 	
 	public Objetos(Stage stage) {
@@ -73,6 +74,10 @@ public class Objetos {
 	public void act() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public boolean isMarkedForRemoval() {
+		return markedForRemove;
 	}
 	
 	
