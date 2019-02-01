@@ -30,19 +30,40 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Arkanoid extends Canvas implements Stage {
-
-	private BufferStrategy strategy;
+	
+	private SoundCache soundCache;
 	private long usedTime;
-
 	private SpriteCache spriteCache;
-	private ArrayList objets;
+	//NAVE Y PELOTA
 	private Nave nave;
 	private Pelota pelota;
-
+	public static final int FPS = 100; // Frames por segundo
+	// Lista de actores que se representan en pantalla
+	private List<Objetos>objets = new ArrayList <Objetos>();
+	private List<Explosion>explosion = new ArrayList <Explosion>();
+	
+	// Estrategia de Doble Buffer
+	private BufferStrategy strategy;
+	// Variable para patr�n Singleton
+	private static Arkanoid instancia = null;
+	
+	
+	/**
+	 * SINGLETON
+	 * @return
+	 */
+	public static Arkanoid getInstancia () {
+		if (instancia == null) {
+			instancia = new Arkanoid();
+		}
+		return instancia;
+	}
+		
 	public Arkanoid() {
 		spriteCache = new SpriteCache();
-
-		JFrame ventana = new JFrame("Invaders");
+		soundCache = new SoundCache();
+		
+		JFrame ventana = new JFrame("ARKANOID - JUANMI ");
 		JPanel panel = (JPanel) ventana.getContentPane();
 		setBounds(0, 0, Stage.WIDTH, Stage.HEIGHT);
 		panel.setPreferredSize(new Dimension(Stage.WIDTH, Stage.HEIGHT));
@@ -76,10 +97,10 @@ public class Arkanoid extends Canvas implements Stage {
 			}
 		});
 	}
+	
 
 	public void initWorld() {
-		objets = new ArrayList();
-
+		soundCache.loopSound("musicaA.wav");
 		for (int i = 0; i < 23; i++) {
 			LadrilloRosa rosa = new LadrilloRosa(this);
 			rosa.setX((i * rosa.width) + 12);
@@ -111,8 +132,8 @@ public class Arkanoid extends Canvas implements Stage {
 
 	public void updateWorld() {
 		for (int i = 0; i < objets.size(); i++) {
-			Objetos m = (Objetos) objets.get(i);
-			m.act();
+			Ladrillos ladrillos = (Ladrillos) objets.get(i);
+			ladrillos.act();
 		}
 		nave.act();
 		pelota.act();
@@ -123,9 +144,8 @@ public class Arkanoid extends Canvas implements Stage {
 		Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
 		g.drawImage(spriteCache.getSprite("fondo.jpg"), 0, 0, this);
 		for (int i = 0; i < objets.size(); i++) {
-			Objetos m = (Objetos) objets.get(i);
-			Objetos v = (Objetos) objets.get(i);
-			m.paint(g);
+			Ladrillos ladrillos = (Ladrillos) objets.get(i);
+			ladrillos.paint(g);
 		}
 		nave.paint(g);
 		pelota.paint(g);

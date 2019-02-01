@@ -22,7 +22,7 @@ public class Objetos {
 	protected int frameSpeed;
 	protected int t;
 	protected Stage stage;
-	protected boolean markedForRemove;
+	public boolean isTouched=false;
 	protected SpriteCache spriteCache;
 	
 	public Objetos(Stage stage) {
@@ -76,9 +76,6 @@ public class Objetos {
 		
 	}
 
-	public boolean isMarkedForRemoval() {
-		return markedForRemove;
-	}
 	
 	
 }

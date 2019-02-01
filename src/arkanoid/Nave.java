@@ -55,10 +55,8 @@ public class Nave extends Objetos {
 	}
 	
 	public void mouseMoved (MouseEvent e) {
-		if(x!=0 && x<Stage.WIDTH) {
 		x = e.getXOnScreen()- (getWidth()*2 + getWidth()/2);
 		act();
-		}
 	}
 	public void collision(Objetos a){
 		if (a instanceof Pelota) {
