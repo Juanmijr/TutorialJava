@@ -131,12 +131,33 @@ public class Arkanoid extends Canvas implements Stage {
 	}
 
 	public void updateWorld() {
-		for (int i = 0; i < objets.size(); i++) {
-			Ladrillos ladrillos = (Ladrillos) objets.get(i);
-			ladrillos.act();
-		}
 		nave.act();
 		pelota.act();
+		for (int i = 0; i < objets.size(); i++) {
+			Objetos ladrillos = (Ladrillos) objets.get(i);
+			if(ladrillos.isTouched) {
+				Explosion e = new Explosion(this);
+				e.setX(ladrillos.getX());
+				e.setY(ladrillos.getY()-5);
+				explosion.add(e);
+				objets.remove(i);
+			}
+			
+		}
+		for (int i = 0; i < explosion.size(); i++) {
+		Objetos m = (Objetos)explosion.get(i);
+		if (m.isTouched) {
+			explosion.remove(i);
+		}
+		else {
+			i++;
+		}
+		}
+		for(int i = 0; i<explosion.size();i++) {
+			Objetos m = (Objetos)explosion.get(i);
+			m.act();
+		}
+		
 	}
 
 	public void paintWorld() {
@@ -146,6 +167,12 @@ public class Arkanoid extends Canvas implements Stage {
 		for (int i = 0; i < objets.size(); i++) {
 			Ladrillos ladrillos = (Ladrillos) objets.get(i);
 			ladrillos.paint(g);
+		}
+		for (int i=0; i<explosion.size(); i++) {
+			Objetos pum = (Objetos)explosion.get(i);
+			if(!pum.isTouched) {
+				pum.paint(g);
+			}
 		}
 		nave.paint(g);
 		pelota.paint(g);
@@ -162,7 +189,6 @@ public class Arkanoid extends Canvas implements Stage {
 		while (isVisible()) {
 			updateWorld();
 			checkCollisions();
-			remove();
 			paintWorld();
 			
 
@@ -191,15 +217,6 @@ public class Arkanoid extends Canvas implements Stage {
 
 		}
 
-	}
-
-	public void remove() {
-		for (int i = 0; i < objets.size(); i++) {
-			Ladrillos ladrillos = (Ladrillos) objets.get(i);
-			if (ladrillos.isTouched == true) {
-				objets.remove(i);
-			}
-		}
 	}
 
 	public static void main(String[] args) {

@@ -12,7 +12,7 @@ public class Explosion extends Objetos{
 public void act() {
 	super.act();
 	if(currentFrame == (img.length-1)) {
-		tocado = true;
+		isTouched = true;
 	}
 
 

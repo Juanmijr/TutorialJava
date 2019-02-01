@@ -72,8 +72,11 @@ public class Objetos {
 	}
 
 	public void act() {
-		// TODO Auto-generated method stub
-		
+		t++;
+		if(t % frameSpeed ==0) {
+			t=0;
+			currentFrame = (currentFrame + 1) % spriteNames.length;
+		}
 	}
 
 	
