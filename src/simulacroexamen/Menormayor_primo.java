@@ -28,7 +28,7 @@ public class Menormayor_primo {
 		int numerosPrimos[]= new int [3];
 		int contador = 0;
 		for (int i = numeroElegido; i > 0; i--) {
-			if (i % 2 != 0 && i % 3 != 0 && i % 3 != 0 && i%5 !=0 && contador<=2) {
+			if (i % 2 != 0 && i % 3 != 0 && i % 3 != 0 && i%5 !=0  && i%7 !=0 && contador<=2) {
 				numerosPrimos[contador]= i;
 				contador++;
 			
@@ -62,4 +62,6 @@ public class Menormayor_primo {
 		}
 		return array;
 	}
+	
+	
 }
