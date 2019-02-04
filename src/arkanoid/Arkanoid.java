@@ -88,6 +88,7 @@ public class Arkanoid extends Canvas implements Stage {
 
 			public void keyPressed(KeyEvent e) {
 				nave.keyPressed(e);
+				pelota.keyPressed(e);
 			}
 		});
 
@@ -131,6 +132,12 @@ public class Arkanoid extends Canvas implements Stage {
 	}
 
 	public void updateWorld() {
+		if (pelota.jugar == false) {
+			inicia();
+			
+		}
+	
+		
 		nave.act();
 		pelota.act();
 		for (int i = 0; i < objets.size(); i++) {
@@ -157,6 +164,7 @@ public class Arkanoid extends Canvas implements Stage {
 			Objetos m = (Objetos)explosion.get(i);
 			m.act();
 		}
+		
 		
 	}
 
@@ -217,6 +225,15 @@ public class Arkanoid extends Canvas implements Stage {
 
 		}
 
+	}
+	
+	public void inicia () {
+		pelota.vy = 0;
+		pelota.vx = nave.getVx();
+		pelota.x = nave.getX();
+		pelota.y = nave.getY();
+		
+		
 	}
 
 	public static void main(String[] args) {

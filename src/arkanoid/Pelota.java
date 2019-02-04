@@ -1,8 +1,11 @@
 package arkanoid;
 
+import java.awt.event.KeyEvent;
+
 public class Pelota extends Objetos {
 	protected int vx;
 	protected int vy;
+	protected boolean  jugar;
 	
 	
 	public Pelota(Stage stage) {
@@ -33,6 +36,15 @@ public class Pelota extends Objetos {
 			vy = -vy;
 		}
 	}
+
+	public void keyPressed(KeyEvent e) {
+		switch(KeyEvent.KEY_PRESSED) {
+	case KeyEvent.VK_SPACE : jugar= true;
+		}
+	}
+	
+	
+	
 
 	
 	
