@@ -1,6 +1,7 @@
 package arkanoid;
 
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 
 public class Pelota extends Objetos {
 	protected int vx;
@@ -15,7 +16,7 @@ public class Pelota extends Objetos {
 	
 	public void act() {
 		x+=vx;
-		y+=vy;
+		y-=vy;
 		if (x < 0 || x > Stage.WIDTH-15)			
 		  vx = -vx;
 		if (y<0 || y > Stage.HEIGHT-35)
@@ -38,10 +39,20 @@ public class Pelota extends Objetos {
 	}
 
 	public void keyPressed(KeyEvent e) {
-		switch(KeyEvent.KEY_PRESSED) {
+		switch(e.getKeyCode()) {
 	case KeyEvent.VK_SPACE : jugar= true;
 		}
+		
+		
 	}
+
+	public void mouseClicked(MouseEvent e) {
+		switch (e.MOUSE_CLICKED) {
+		case MouseEvent.MOUSE_CLICKED : jugar = true;
+		}
+		
+	}
+	
 	
 	
 	

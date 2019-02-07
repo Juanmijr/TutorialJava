@@ -95,6 +95,12 @@ public class Arkanoid extends Canvas implements Stage {
 		this.addMouseMotionListener(new MouseAdapter() {
 			public void mouseMoved(MouseEvent e) {
 				nave.mouseMoved(e);
+				
+			}
+		});
+		this.addMouseListener(new MouseAdapter() {
+			public void mouseClicked (MouseEvent e) {
+				pelota.mouseClicked(e);
 			}
 		});
 	}
@@ -132,14 +138,16 @@ public class Arkanoid extends Canvas implements Stage {
 	}
 
 	public void updateWorld() {
-		if (pelota.jugar == false) {
-			inicia();
-			
-		}
-	
-		
 		nave.act();
 		pelota.act();
+		
+		if (pelota.jugar == false && usedTime < 5000) {
+			inicia();
+		}
+		if (pelota.jugar == true || usedTime >= 5000) {
+		pelota.act();
+		}
+		
 		for (int i = 0; i < objets.size(); i++) {
 			Objetos ladrillos = (Ladrillos) objets.get(i);
 			if(ladrillos.isTouched) {
@@ -193,12 +201,13 @@ public class Arkanoid extends Canvas implements Stage {
 	}
 
 	public void game() {
+		long startTime = System.currentTimeMillis();
 		initWorld();
 		while (isVisible()) {
 			updateWorld();
 			checkCollisions();
 			paintWorld();
-			
+			usedTime = System.currentTimeMillis()- startTime;
 
 			try {
 				Thread.sleep(SPEED);
@@ -228,13 +237,14 @@ public class Arkanoid extends Canvas implements Stage {
 	}
 	
 	public void inicia () {
-		pelota.vy = 0;
-		pelota.vx = nave.getVx();
-		pelota.x = nave.getX();
+		 
+		pelota.x = nave.getX()+15;
 		pelota.y = nave.getY();
-		
+	
 		
 	}
+	
+
 
 	public static void main(String[] args) {
 		Arkanoid inv = new Arkanoid();
