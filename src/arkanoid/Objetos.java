@@ -63,9 +63,7 @@ public class Objetos {
 	public void setHeight(int i) {height = i;	}
 	public void setWidth(int i) {	width = i;	}
 
-	public Rectangle getBounds() {
-		return new Rectangle(x,y,width,height);
-	}
+
 	
 	public void collision(Objetos a){
 		
@@ -78,7 +76,9 @@ public class Objetos {
 			currentFrame = (currentFrame + 1) % spriteNames.length;
 		}
 	}
-
+	public Rectangle getBounds() {
+		return new Rectangle(x,y,width,height);
+	}
 	
 	
 }

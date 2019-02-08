@@ -1,5 +1,6 @@
 package arkanoid;
 
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
@@ -63,6 +64,8 @@ public class Nave extends Objetos {
 		vy=-vy;
 		}
 	}
+	
+	
 	
 
 }

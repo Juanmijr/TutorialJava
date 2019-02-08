@@ -36,7 +36,9 @@ public class Arkanoid extends Canvas implements Stage {
 	private SpriteCache spriteCache;
 	//NAVE Y PELOTA
 	private Nave nave;
+	private Ladrillos ladrillos;
 	private Pelota pelota;
+	Rectangle pelotaBounds;
 	public static final int FPS = 100; // Frames por segundo
 	// Lista de actores que se representan en pantalla
 	private List<Objetos>objets = new ArrayList <Objetos>();
@@ -133,20 +135,19 @@ public class Arkanoid extends Canvas implements Stage {
 		pelota = new Pelota(this);
 		pelota.setX(Stage.WIDTH / 2);
 		pelota.setY(Stage.HEIGHT / 2);
-		pelota.setVx(1);
-		pelota.setVy(1);
+		pelota.setVx(0);
+		pelota.setVy(0);
 	}
 
 	public void updateWorld() {
-		nave.act();
-		pelota.act();
-		
+	
 		if (pelota.jugar == false && usedTime < 5000) {
 			inicia();
 		}
 		if (pelota.jugar == true || usedTime >= 5000) {
 		pelota.act();
 		}
+		nave.act();
 		
 		for (int i = 0; i < objets.size(); i++) {
 			Objetos ladrillos = (Ladrillos) objets.get(i);
@@ -205,8 +206,8 @@ public class Arkanoid extends Canvas implements Stage {
 		initWorld();
 		while (isVisible()) {
 			updateWorld();
-			checkCollisions();
 			paintWorld();
+			checkCollisions();
 			usedTime = System.currentTimeMillis()- startTime;
 
 			try {
@@ -217,17 +218,17 @@ public class Arkanoid extends Canvas implements Stage {
 	}
 
 	public void checkCollisions() {
-		Rectangle pelotaBounds = pelota.getBounds();
+		pelotaBounds = pelota.getBounds();
 		Rectangle naveBounds = nave.getBounds();
-		if (naveBounds.intersects(pelotaBounds) && pelotaBounds.intersects(naveBounds)) {
-			pelota.vy = -pelota.vy;
+ 		if (naveBounds.intersects(pelotaBounds) && pelotaBounds.intersects(naveBounds)) {
+			pelota.collision(nave);
 		}
+		
 		for (int i = 0; i < objets.size(); i++) {
 			Objetos a1 = (Objetos) objets.get(i);
-			Rectangle r1 = a1.getBounds();
+			Rectangle r1= a1.getBounds();
 			if (r1.intersects(pelotaBounds)) {
-				pelota.collision(a1);
-				a1.collision(pelota);
+				ladrillos.collision(pelota);
 
 			}
 			
@@ -239,7 +240,7 @@ public class Arkanoid extends Canvas implements Stage {
 	public void inicia () {
 		 
 		pelota.x = nave.getX()+15;
-		pelota.y = nave.getY();
+		pelota.y = nave.getY()-7;
 	
 		
 	}
@@ -250,4 +251,5 @@ public class Arkanoid extends Canvas implements Stage {
 		Arkanoid inv = new Arkanoid();
 		inv.game();
 	}
+	
 }

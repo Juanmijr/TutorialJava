@@ -1,5 +1,6 @@
 package arkanoid;
 
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
@@ -7,6 +8,9 @@ public class Pelota extends Objetos {
 	protected int vx;
 	protected int vy;
 	protected boolean  jugar;
+	TrayectoriaRecta trayectoria = null;
+	PuntoAltaPrecision coordenadas = null;
+	float pixelFrame = 3; 
 	
 	
 	public Pelota(Stage stage) {
@@ -15,12 +19,21 @@ public class Pelota extends Objetos {
 	}
 	
 	public void act() {
-		x+=vx;
-		y-=vy;
+		if (trayectoria == null) {
+		coordenadas = new PuntoAltaPrecision(x, y);
+		trayectoria = new TrayectoriaRecta(-2.5f, coordenadas, false);
+		}
+		this.coordenadas= this.trayectoria.getPuntoADistanciaDePunto(this.coordenadas, pixelFrame);
+		if (pixelFrame < 3) {
+			pixelFrame*=1.00035;
+		}
+		this.x = Math.round(this.coordenadas.x);
+		this.y = Math.round(this.coordenadas.y);
+		
 		if (x < 0 || x > Stage.WIDTH-15)			
-		  vx = -vx;
+		  this.trayectoria.reflejarHorizontalmenteRespectoAPunto(coordenadas);
 		if (y<0 || y > Stage.HEIGHT-35)
-			vy= -vy;
+			this.trayectoria.reflejarVerticalmenteRespectoAPunto(coordenadas);
 	}
 
 	public int getVx() { return vx; }
@@ -29,12 +42,9 @@ public class Pelota extends Objetos {
 	public void setVy(int i) {vy = i; }
 	
 	public void collision(Objetos a){
-		if (a instanceof Ladrillos) {
-		vy = -vy;
-
-		}
+		
 		if (a instanceof Nave) {
-			vy = -vy;
+			this.trayectoria.reflejarVerticalmenteRespectoAPunto(this.coordenadas);
 		}
 	}
 
@@ -56,7 +66,6 @@ public class Pelota extends Objetos {
 	
 	
 	
-
 	
 	
 
