@@ -10,7 +10,7 @@ public class Pelota extends Objetos {
 	protected boolean  jugar;
 	TrayectoriaRecta trayectoria = null;
 	PuntoAltaPrecision coordenadas = null;
-	float pixelFrame = 3; 
+	float pixelFrame = 2; 
 	
 	
 	public Pelota(Stage stage) {
@@ -24,8 +24,8 @@ public class Pelota extends Objetos {
 		trayectoria = new TrayectoriaRecta(-2.5f, coordenadas, false);
 		}
 		this.coordenadas= this.trayectoria.getPuntoADistanciaDePunto(this.coordenadas, pixelFrame);
-		if (pixelFrame < 3) {
-			pixelFrame*=1.00035;
+		if (pixelFrame < 6) {
+			pixelFrame*=1.0005;
 		}
 		this.x = Math.round(this.coordenadas.x);
 		this.y = Math.round(this.coordenadas.y);
@@ -44,6 +44,9 @@ public class Pelota extends Objetos {
 	public void collision(Objetos a){
 		
 		if (a instanceof Nave) {
+			this.trayectoria.reflejarVerticalmenteRespectoAPunto(this.coordenadas);
+		}
+		if (a instanceof Ladrillos) {
 			this.trayectoria.reflejarVerticalmenteRespectoAPunto(this.coordenadas);
 		}
 	}

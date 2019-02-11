@@ -22,7 +22,7 @@ public class Objetos {
 	protected int frameSpeed;
 	protected int t;
 	protected Stage stage;
-	public boolean isTouched=false;
+	public  boolean isTouched=false;
 	protected SpriteCache spriteCache;
 	
 	public Objetos(Stage stage) {

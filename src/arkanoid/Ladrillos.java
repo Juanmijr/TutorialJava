@@ -14,8 +14,8 @@ public class Ladrillos extends Objetos{
 	public void collision(Objetos a) {
 		if(a instanceof Pelota) {
 			isTouched = true;
-			toqueLadrillo();
-			System.out.println("Estoy aqui");
+			//toqueLadrillo();
+			//System.out.println("Estoy aqui");
 		}
 	}
 	public void toqueLadrillo() {
@@ -39,7 +39,7 @@ public class Ladrillos extends Objetos{
 			izquierda = true;
 		}
 		
-		
+	
 	}
 
 }

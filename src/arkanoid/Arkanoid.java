@@ -228,7 +228,8 @@ public class Arkanoid extends Canvas implements Stage {
 			Objetos a1 = (Objetos) objets.get(i);
 			Rectangle r1= a1.getBounds();
 			if (r1.intersects(pelotaBounds)) {
-				ladrillos.collision(pelota);
+				pelota.collision(a1);
+				a1.collision(pelota);
 
 			}
 			
