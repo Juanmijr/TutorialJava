@@ -1,4 +1,4 @@
-package tutorialJava.Arkanoid.version09;
+package version09;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -20,6 +20,7 @@ public class Ladrillo extends Actor {
 	public static final int ESPACIO_ENTRE_LADRILLOS = 2;
 	int newImg=0;
 	boolean listo = false; 
+	boolean loco = false;
 
 	// Propiedades espec�ficas de cada ladrillo
 	private Color color = null;
@@ -59,12 +60,7 @@ public class Ladrillo extends Actor {
 		nuevosSprites.add(CacheRecursos.getInstancia().getImagen("ladrilloverde.png"));
 		nuevosSprites.add(CacheRecursos.getInstancia().getImagen("ladrillorosa.png"));
 		nuevosSprites.add(CacheRecursos.getInstancia().getImagen("ladrilloazul.png"));
-		if (imagen == 6 ) {
-			if () {
-				listo = true;
-			}
-			
-		}
+		
 		
 		// Sprite actual
 		this.spriteActual = nuevosSprites.get(imagen);
@@ -83,17 +79,22 @@ public class Ladrillo extends Actor {
 		// Si un ladrillo detecta una colisi�n con un objeto de tipo "Bola", debe
 		// desaparecer
 
-		if (newImg != 5 ) {
-			if (actorColisionado instanceof Bola && listo==true) {
+		if (newImg != 6) {
+			if (actorColisionado instanceof Bola ) {
+				if (newImg != 7 || listo == true) {
 				eliminar();
 				// Creo un nuevo actor de tipo Explosion y lo centr� respecto a la posici�n del
 				// ladrillo
 				Explosion explosion = new Explosion(this.getX(), this.getY());
 				explosion.setX(this.x + Ladrillo.ANCHO / 2 - explosion.getAncho() / 2);
 				Arkanoid.getInstancia().agregarActor(explosion);
+				
 				// Reproduzco el sonido de la explisi�n
 				CacheRecursos.getInstancia().playSonido("Arkanoid-SFX-01.wav");
-				
+				}
+				else {
+					listo = true;
+				}
 			}	
 		}
 		

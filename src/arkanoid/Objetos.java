@@ -66,8 +66,10 @@ public class Objetos {
 
 	
 	public void collision(Objetos a){
-		
+		isTouched = true;
 	}
+	
+	
 
 	public void act() {
 		t++;

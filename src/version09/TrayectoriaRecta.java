@@ -1,4 +1,4 @@
-package tutorialJava.Arkanoid.version09;
+package version09;
 
 /**
  * Clase que implementa una trayectoria en línea recta. En realidad, en su interior esta clase utiliza una recta en su

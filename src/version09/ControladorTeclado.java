@@ -1,4 +1,4 @@
-package tutorialJava.Arkanoid.version09;
+package version09;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;

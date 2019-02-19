@@ -1,4 +1,4 @@
-package tutorialJava.Arkanoid.version09;
+package version09;
 
 /**
  * Clase interna que nos aporta precisión en el cálculo de la coordenada que ocupa la bola

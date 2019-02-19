@@ -1,4 +1,4 @@
-package tutorialJava.Arkanoid.version09;
+package version09;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;

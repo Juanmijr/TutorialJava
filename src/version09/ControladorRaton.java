@@ -1,4 +1,4 @@
-package tutorialJava.Arkanoid.version09;
+package version09;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

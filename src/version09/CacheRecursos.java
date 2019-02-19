@@ -1,4 +1,4 @@
-package tutorialJava.Arkanoid.version09;
+package version09;
 
 import java.applet.Applet;
 import java.applet.AudioClip;
@@ -17,8 +17,8 @@ public class CacheRecursos {
 	// HashMap que actúa como almacén de imágenes
 	private HashMap<String, Object> hmRecursos = new HashMap<String, Object>();
 	// Carpetas en la que se encuentran todos los recursos
-	private String nombreCarpetaParaFile = "./src/tutorialJava/Arkanoid/res/";
-	private String nombreCarpetaParaURL = "../res/";
+	private String nombreCarpetaParaFile = "./src/version09/res/";
+	private String nombreCarpetaParaURL = "res/";
 
 	
 	
