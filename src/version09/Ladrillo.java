@@ -22,8 +22,6 @@ public class Ladrillo extends Actor {
 	boolean listo = false; 
 	boolean loco = false;
 
-	// Propiedades espec�ficas de cada ladrillo
-	private Color color = null;
 
 	/**
 	 * Constructor
@@ -35,7 +33,6 @@ public class Ladrillo extends Actor {
 		this.y = 10;
 		this.ancho = ANCHO;
 		this.alto = ALTO;
-		this.color = Color.WHITE; // Por defecto pongo el ladrillo en color blanco
 	}
 
 	/**
@@ -89,6 +86,13 @@ public class Ladrillo extends Actor {
 				explosion.setX(this.x + Ladrillo.ANCHO / 2 - explosion.getAncho() / 2);
 				Arkanoid.getInstancia().agregarActor(explosion);
 				
+				int tipopildora = (int) Math.round(Math.random()*10);
+				int probabilidadPildora= (int) Math.round(Math.random()*3);
+				if (probabilidadPildora >5) {
+					Pocion pocion = new Pocion (this.getX(), this.getY(), tipopildora);
+					Arkanoid.getInstancia().agregarActor(pocion);
+				}
+				
 				// Reproduzco el sonido de la explisi�n
 				CacheRecursos.getInstancia().playSonido("Arkanoid-SFX-01.wav");
 				}
@@ -100,12 +104,5 @@ public class Ladrillo extends Actor {
 		
 	}
 
-	// M�todos getter y setter
-	public Color getColor() {
-		return color;
-	}
-
-	public void setColor(Color color) {
-		this.color = color;
-	}
+	
 }

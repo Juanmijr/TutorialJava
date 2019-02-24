@@ -31,6 +31,10 @@ public class Fase01 extends Fase {
 		    			ESPACIO_SUPERIOR_SOBRE_LADRILLOS + i * (Ladrillo.ALTO + Ladrillo.ESPACIO_ENTRE_LADRILLOS), i));
 		    }
 	    }
+	    
+	 
 	}
+	
+	
 
 }
