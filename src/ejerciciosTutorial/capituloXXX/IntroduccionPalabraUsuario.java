@@ -1,4 +1,4 @@
-package capituloXXX;
+package ejerciciosTutorial.capituloXXX;
 
 import java.awt.List;
 import java.util.ArrayList;

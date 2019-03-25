@@ -1,4 +1,4 @@
-package capítulo6.bloque2;
+package ejerciciosTutorial.capítulo6.Exception;
 
 import java.util.Scanner;
 

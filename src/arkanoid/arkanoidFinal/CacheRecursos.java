@@ -1,4 +1,4 @@
-package version09;
+package arkanoid.arkanoidFinal;
 
 import java.applet.Applet;
 import java.applet.AudioClip;
@@ -14,7 +14,7 @@ import javax.imageio.ImageIO;
  *
  */
 public class CacheRecursos {
-	// HashMap que actúa como almacén de imágenes
+	// HashMap que actï¿½a como almacï¿½n de imï¿½genes
 	private HashMap<String, Object> hmRecursos = new HashMap<String, Object>();
 	// Carpetas en la que se encuentran todos los recursos
 	private String nombreCarpetaParaFile = "./src/version09/res/";
@@ -59,7 +59,7 @@ public class CacheRecursos {
 		// Obtengo un objeto URL para localizar el recurso
 		URL url = null;
 		url = getClass().getResource(nombreCarpetaParaURL + nombreFichero);
-		// Discriminaré el caso de que intento cargar un sonido del caso de cargar imágenes
+		// Discriminarï¿½ el caso de que intento cargar un sonido del caso de cargar imï¿½genes
 		try {
 			if (nombreFichero.endsWith(".wav") || nombreFichero.endsWith(".mp3")) {
 				this.hmRecursos.put(nombreFichero, Applet.newAudioClip(url));
@@ -77,7 +77,7 @@ public class CacheRecursos {
 	
 	
 	/**
-	 * Mediante este método casteamos a imagen el recurso que nos proporciona el supertipo
+	 * Mediante este mï¿½todo casteamos a imagen el recurso que nos proporciona el supertipo
 	 * @param name
 	 * @return
 	 */

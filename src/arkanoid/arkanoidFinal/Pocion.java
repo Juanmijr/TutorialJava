@@ -1,4 +1,4 @@
-package version09;
+package arkanoid.arkanoidFinal;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;

@@ -47,7 +47,7 @@ public class Main {
 	
 	private void recorreHashMap () {
 		String key="";
-		for (Entry<String, Articulo> lista : listaArticulos.entrySet()) {
+		for (Entry<String, Articulo> lista : listaArticulos.()) {
 		    String cod  = lista.getKey();
 
 		    String loco = listaArticulos.get(cod).toString();

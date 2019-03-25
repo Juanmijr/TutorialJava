@@ -1,4 +1,4 @@
-package capítulo6.bloque3;
+package ejerciciosTutorial.capítulo6.Exception;
 
 public class PalabrasException extends Exception {
 

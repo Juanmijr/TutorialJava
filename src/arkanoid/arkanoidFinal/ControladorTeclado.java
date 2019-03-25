@@ -1,4 +1,4 @@
-package version09;
+package arkanoid.arkanoidFinal;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -11,7 +11,7 @@ import java.awt.event.KeyEvent;
 public class ControladorTeclado extends KeyAdapter {
 
 	/**
-	 * Se activa este método cuando dejamos pulsada una tecla
+	 * Se activa este mï¿½todo cuando dejamos pulsada una tecla
 	 */
 	@Override
 	public void keyPressed(KeyEvent event) {
@@ -21,7 +21,7 @@ public class ControladorTeclado extends KeyAdapter {
 	}
 
 	/**
-	 * Se activa este método cuando levantamos una tecla pulsada
+	 * Se activa este mï¿½todo cuando levantamos una tecla pulsada
 	 */
 	@Override
 	public void keyReleased(KeyEvent event) {

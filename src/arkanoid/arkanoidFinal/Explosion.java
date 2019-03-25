@@ -1,4 +1,4 @@
-package version09;
+package arkanoid.arkanoidFinal;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ public class Explosion extends Actor {
 		super();
 		this.x = x;
 		this.y = y;
-		// Carga de los sprites de la explosión
+		// Carga de los sprites de la explosiï¿½n
 		List<BufferedImage> nuevosSprites = new ArrayList<BufferedImage>();
 		nuevosSprites.add(CacheRecursos.getInstancia().getImagen("sprite-explosion1.png"));
 		nuevosSprites.add(CacheRecursos.getInstancia().getImagen("sprite-explosion2.png"));
@@ -32,7 +32,7 @@ public class Explosion extends Actor {
 	
 
 	/**
-	 * Método que se llamará para cada actor, en cada refresco de pantalla del juego
+	 * Mï¿½todo que se llamarï¿½ para cada actor, en cada refresco de pantalla del juego
 	 */
 	@Override
 	public void act() {

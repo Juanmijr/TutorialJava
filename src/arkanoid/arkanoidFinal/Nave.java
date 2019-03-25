@@ -1,4 +1,4 @@
-package version09;
+package arkanoid.arkanoidFinal;
 
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;

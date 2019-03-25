@@ -1,4 +1,4 @@
-package capituloXXX;
+package ejerciciosTutorial.capituloXXX;
 
 public class PalabraIntroducidaAvionetaEvents {
 
